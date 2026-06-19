@@ -1,4 +1,5 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
+import { BatchImageInput } from "../components/BatchImageInput";
 
 export const stillProject = defineType({
   name: "stillProject",
@@ -35,6 +36,7 @@ export const stillProject = defineType({
       title: "Images",
       description: "First image is the cover. Drag to reorder.",
       type: "array",
+      components: { input: BatchImageInput },
       of: [
         defineArrayMember({
           type: "image",
