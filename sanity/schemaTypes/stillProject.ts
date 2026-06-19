@@ -1,3 +1,7 @@
+import {
+  orderRankField,
+  orderRankOrdering,
+} from "@sanity/orderable-document-list";
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { BatchImageInput } from "../components/BatchImageInput";
 
@@ -48,21 +52,9 @@ export const stillProject = defineType({
       ],
       validation: (r) => r.min(1),
     }),
-    defineField({
-      name: "order",
-      title: "Sort order",
-      description: "Lower numbers appear first.",
-      type: "number",
-      initialValue: 0,
-    }),
+    orderRankField({ type: "stillProject" }),
   ],
-  orderings: [
-    {
-      title: "Sort order",
-      name: "orderAsc",
-      by: [{ field: "order", direction: "asc" }],
-    },
-  ],
+  orderings: [orderRankOrdering],
   preview: {
     select: { title: "title", subtitle: "description", media: "images.0" },
   },

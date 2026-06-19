@@ -1,5 +1,6 @@
 "use client";
 
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
@@ -36,7 +37,7 @@ export default defineConfig({
   },
   plugins: [
     structureTool({
-      structure: (S) =>
+      structure: (S, context) =>
         S.list()
           .title("Content")
           .items([
@@ -47,8 +48,18 @@ export default defineConfig({
                 .child(S.document().schemaType(id).documentId(id)),
             ),
             S.divider(),
-            S.documentTypeListItem("stillProject").title("Stills Projects"),
-            S.documentTypeListItem("motionProject").title("Motion Projects"),
+            orderableDocumentListDeskItem({
+              type: "stillProject",
+              title: "Stills Projects",
+              S,
+              context,
+            }),
+            orderableDocumentListDeskItem({
+              type: "motionProject",
+              title: "Motion Projects",
+              S,
+              context,
+            }),
           ]),
     }),
     media(),

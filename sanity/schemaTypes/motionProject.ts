@@ -1,3 +1,7 @@
+import {
+  orderRankField,
+  orderRankOrdering,
+} from "@sanity/orderable-document-list";
 import { defineField, defineType } from "sanity";
 
 export const motionProject = defineType({
@@ -34,21 +38,9 @@ export const motionProject = defineType({
       fields: [defineField({ name: "alt", title: "Alt text", type: "string" })],
       validation: (r) => r.required(),
     }),
-    defineField({
-      name: "order",
-      title: "Sort order",
-      description: "Lower numbers appear first.",
-      type: "number",
-      initialValue: 0,
-    }),
+    orderRankField({ type: "motionProject" }),
   ],
-  orderings: [
-    {
-      title: "Sort order",
-      name: "orderAsc",
-      by: [{ field: "order", direction: "asc" }],
-    },
-  ],
+  orderings: [orderRankOrdering],
   preview: {
     select: { title: "title", subtitle: "vimeoUrl", media: "thumbnail" },
   },

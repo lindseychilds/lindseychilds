@@ -17,7 +17,7 @@ export const settingsQuery = groq`*[_type == "siteSettings"][0]{
   seoDescription
 }`;
 
-export const stillsQuery = groq`*[_type == "stillProject"] | order(order asc, title asc){
+export const stillsQuery = groq`*[_type == "stillProject"] | order(orderRank){
   "slug": slug.current,
   title,
   description,
@@ -25,7 +25,7 @@ export const stillsQuery = groq`*[_type == "stillProject"] | order(order asc, ti
   images[]${imageProjection}
 }`;
 
-export const motionQuery = groq`*[_type == "motionProject"] | order(order asc, title asc){
+export const motionQuery = groq`*[_type == "motionProject"] | order(orderRank){
   "slug": slug.current,
   title,
   vimeoUrl,
