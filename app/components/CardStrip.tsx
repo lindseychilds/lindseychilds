@@ -9,6 +9,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
+  alt: string;
   href: string;
   width: number;
   height: number;
@@ -81,7 +82,7 @@ export default function CardStrip({ projects }: { projects: Project[] }) {
                   <div className="card__images-wrapper">
                     <Image
                       src={project.image}
-                      alt=""
+                      alt={project.alt}
                       width={project.width}
                       height={project.height}
                       sizes="(max-width: 48rem) 80vw, 55vw"

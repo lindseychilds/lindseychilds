@@ -9,13 +9,16 @@ interface StillImage {
   src: string;
   width: number;
   height: number;
+  alt?: string;
 }
 
 export default function ProjectView({
+  title,
   images,
   prevSlug,
   nextSlug,
 }: {
+  title: string;
   images: StillImage[];
   prevSlug: string;
   nextSlug: string;
@@ -45,6 +48,7 @@ export default function ProjectView({
 
   return (
     <>
+      <h1 className="visually-hidden">{title}</h1>
       <div className="scatter-viewport" ref={viewportRef}>
         <div className="scatter-track">
           {triple.map((image, i) => (
@@ -56,7 +60,7 @@ export default function ProjectView({
             >
               <Image
                 src={image.src}
-                alt=""
+                alt={image.alt || title}
                 width={image.width}
                 height={image.height}
                 sizes="(max-width: 48rem) 80vw, 25vw"
@@ -73,7 +77,7 @@ export default function ProjectView({
           <div className="lightbox__image">
             <Image
               src={image.src}
-              alt=""
+              alt={image.alt || title}
               width={image.width}
               height={image.height}
               sizes="max(620px, 37vw)"

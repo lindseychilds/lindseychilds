@@ -1,6 +1,20 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getAbout, getSettings } from "../../sanity/lib/data";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "About Lindsey Childs — photographer based in Los Angeles, working between LA and London across fashion, editorial, and portraiture.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About",
+    description:
+      "About Lindsey Childs — photographer based in Los Angeles, working between LA and London across fashion, editorial, and portraiture.",
+    url: "/about",
+  },
+};
 
 const ptComponents: PortableTextComponents = {
   marks: {

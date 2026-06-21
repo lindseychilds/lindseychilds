@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import { Fragment } from "react";
 import { getContact, getSettings } from "../../sanity/lib/data";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contact Lindsey Childs — bookings and representation via Atelier Management (Los Angeles & New York), or direct enquiries.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact",
+    description:
+      "Contact Lindsey Childs — bookings and representation via Atelier Management (Los Angeles & New York), or direct enquiries.",
+    url: "/contact",
+  },
+};
 
 function Address({ value }: { value: string }) {
   const lines = value.split("\n");
@@ -27,6 +41,7 @@ export default async function ContactPage() {
 
   return (
     <main className="contact">
+      <h1 className="visually-hidden">Contact Lindsey Childs</h1>
       <div className="contact__inner">
         <aside className="contact__aside">
           <span className="contact__signature">{signature}</span>

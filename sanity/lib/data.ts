@@ -28,6 +28,7 @@ export interface ResolvedImage {
   src: string;
   width: number;
   height: number;
+  alt?: string;
 }
 
 export interface Still {
@@ -81,9 +82,7 @@ function vimeoId(url: string | undefined): string {
   return url?.match(/(\d{6,})/)?.[1] ?? "";
 }
 
-function cleanImages(
-  images: (ResolvedImage & { alt?: string })[] | undefined,
-): ResolvedImage[] {
+function cleanImages(images: ResolvedImage[] | undefined): ResolvedImage[] {
   return (images ?? []).filter((i) => i && i.src && i.width && i.height);
 }
 
