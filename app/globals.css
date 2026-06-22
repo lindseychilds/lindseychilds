@@ -119,12 +119,14 @@ body {
     max-width: 10rem;
 }
 
-.nav__link:hover span {
-    opacity: 0;
-}
+@media (hover: hover) {
+    .nav__link:hover span {
+        opacity: 0;
+    }
 
-.nav__link:hover::after {
-    opacity: 1;
+    .nav__link:hover::after {
+        opacity: 1;
+    }
 }
 
 .card-nav {
@@ -386,9 +388,11 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.scatter__back:hover,
-.scatter__project-nav a:hover {
-    opacity: 1;
+@media (hover: hover) {
+    .scatter__back:hover,
+    .scatter__project-nav a:hover {
+        opacity: 1;
+    }
 }
 
 .scatter__project-nav {
@@ -442,8 +446,10 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-.lightbox__btn:hover {
-    opacity: 1;
+@media (hover: hover) {
+    .lightbox__btn:hover {
+        opacity: 1;
+    }
 }
 
 .lightbox__counter {
@@ -524,8 +530,10 @@ body {
     text-transform: uppercase;
 }
 
-.stills-grid:has(.stills-item:hover) .stills-item:not(:hover) {
-    opacity: 0.25;
+@media (hover: hover) {
+    .stills-grid:has(.stills-item:hover) .stills-item:not(:hover) {
+        opacity: 0.25;
+    }
 }
 
 @media (max-width: 64rem) {
@@ -633,8 +641,10 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.notfound__link:hover {
-    opacity: 1;
+@media (hover: hover) {
+    .notfound__link:hover {
+        opacity: 1;
+    }
 }
 
 .stills-grid--motion {
@@ -684,9 +694,11 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.player__back:hover,
-.player__nav a:hover {
-    opacity: 1;
+@media (hover: hover) {
+    .player__back:hover,
+    .player__nav a:hover {
+        opacity: 1;
+    }
 }
 
 .player__nav {
@@ -744,9 +756,11 @@ body {
     width: max-content;
 }
 
-.about__instagram:hover,
-.contact__instagram:hover {
-    opacity: 1;
+@media (hover: hover) {
+    .about__instagram:hover,
+    .contact__instagram:hover {
+        opacity: 1;
+    }
 }
 
 .about__body,
@@ -808,8 +822,10 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.contact__block a:hover {
-    opacity: 0.6;
+@media (hover: hover) {
+    .contact__block a:hover {
+        opacity: 0.6;
+    }
 }
 
 @media (max-width: 64rem) {
